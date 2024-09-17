@@ -22,6 +22,10 @@ public class Main {
             ResultSet personasRS = statement.executeQuery("SELECT * FROM datos");
 
 
+
+
+
+
             while (personasRS.next()){
                 Persona p = new Persona();
                 String nombre = personasRS.getString("nombre");
