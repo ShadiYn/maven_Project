@@ -25,7 +25,8 @@ public class databaseConnection {
                 String edad = alumnosRs.getString("edad");
                 a.setNombre(nombre);
                 a.setEdad(edad);
-                System.out.println("nombre: "+a.nombre+" edad: "+a.edad);
+                //asjdhajsdhajsdhajdhajsdhajsdash
+                System.out.println("nombres: "+a.nombre+" edades: "+a.edad);
             }
 
 
