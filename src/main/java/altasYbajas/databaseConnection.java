@@ -1,32 +1,31 @@
-package org.example;
+package altasYbajas;
+
+import org.example.Persona;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+public class databaseConnection {
 
 
-public class Main {
-    public static void main(String[] args) {
+    public void databaseConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Define the data source for the driver
             String sourceURL = "jdbc:mysql://localhost/library?useSSL=false&serverTimezone=UTC";
             // Create a connection through the DriverManager
             Connection databaseConnection = DriverManager.getConnection(sourceURL, "root", "");
-
-            List<Persona> personas = new ArrayList<>();
-
             Statement statement = databaseConnection.createStatement();
-            ResultSet personasRS = statement.executeQuery("SELECT * FROM datos");
+            ResultSet alumnosRs = statement.executeQuery("SELECT * FROM altaybajas");
 
-            while (personasRS.next()){
-                Persona p = new Persona();
-                String nombre = personasRS.getString("nombre");
-                String dni = personasRS.getString("dni");
-                p.setNombre(nombre);
-                p.setDni(dni);
-                System.out.println("nombre: "+p.nombre+" dni: "+p.dni);
+            while (alumnosRs.next()){//para insertar?
+                Alumno a = new Alumno();
+                String nombre = alumnosRs.getString("nombre");
+                String edad = alumnosRs.getString("edad");
+                a.setNombre(nombre);
+                a.setEdad(edad);
+                System.out.println("nombre: "+a.nombre+" edad: "+a.edad);
             }
 
 
@@ -38,4 +37,6 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+
 }
